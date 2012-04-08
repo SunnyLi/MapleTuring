@@ -3,9 +3,8 @@
 %% By Sunny Li %%
 %%%%%%%%%%%%%%%%%
 
-%This program started from V0.1
-%Date of creation: 6.3.2010
-%V1.0 updated on 3.10.2012
+% Date of creation: 6.3.2010
+% V1.0 updated on 4.8.2012
 
 /*=====================================================================
  This program is created based on the popular MMORPG game MapleStory
@@ -14,8 +13,7 @@
  edited on photoshop.
  =====================================================================*/
 
-%May Lag on Some Computers
-%When in game, type in name and press enter to login.
+% When in game, type in name and press enter to login.
 
 
 %===== Settings =======================================================================================
@@ -23,9 +21,9 @@ View.Set ("graphics:780;570,position:center;center,nobuttonbar,title:Maple Turin
 %======================================================================================================
 
 %======================================================================================================
-%Sound
+% Sound
 %======================================================================================================
-%Music
+% Music
 var music : string
 var finished : boolean
 
@@ -37,15 +35,15 @@ process bgMusic
     end loop
 end bgMusic
 
-%Reminder of how to fork and stop music
-%fork bgMusic
+% Reminder of how to fork and stop music
+% fork bgMusic
 
 % Stop the music
 /*finished := true
  Music.PlayFileStop*/
 
  
-%UI sound
+% UI sound
 var soundFile : string
 var soundFinished : boolean
 
@@ -57,28 +55,28 @@ process sounds
     end loop
 end sounds
 
-%Reminder of how to fork and stop sound
-%fork sounds
+% Reminder of how to fork and stop sound
+% fork sounds
 
 % Stop the sound
 /*soundFinished := true
  Music.PlayFileStop*/
 
 %======================================================================================================
-%Mouse
+% Mouse
 %======================================================================================================
-%for Mouse.Where
+% for Mouse.Where
 var mouseX, mouseY, mouseButton : int
 
 %======================================================================================================
-%Keyboard
+% Keyboard
 %======================================================================================================
-%Key inputs
+% Key inputs
 var key : array char of boolean
 var ch : string (1)
 
 %======================================================================================================
-%Text
+% Text
 %======================================================================================================
 var font : array 1 .. 15 of int
 font (1) := Font.New ("system:10")
@@ -98,35 +96,35 @@ font (14) := Font.New ("Times New Roman:21:bold")
 font (15) := Font.New ("Arial:80:bold,italic")
 
 %======================================================================================================
-%User Info
+% User Info
 %======================================================================================================
-%The login name typed
+% The login name typed
 var name : string := ""
-%This is usesless...for the game I'm gonna do maybe?
+% This is usesless...for the game I'm gonna do maybe?
 var level : int := 1
 
 %======================================================================================================
-%Other Info
+% Other Info
 %======================================================================================================
-%Content Select Scroll Position
+% Content Select Scroll Position
 var scrollPosition : int := 1
-%Exit Content Select
+% Exit Content Select
 var toExit : int := 0
-%Keep track of which option is selected
+% Keep track of which option is selected
 var selectDown : int := 0
-%Quiz
+% Quiz
 var win : boolean := false
 
 %======================================================================================================
-%Images
+% Images
 %======================================================================================================
-%Start Up
+% Start Up
 var nexonLogo : int := Pic.FileNew ("Image/start up/nexon_logo.jpg")
 var wizetLogo : int := Pic.FileNew ("Image/start up/wizet_logo.gif")
 var msLogo : int := Pic.FileNew ("Image/start up/Title.logo.0.1.gif")
 var fantasticStory : int := Pic.FileNew ("Image/start up/fantastic story.jpg")
 
-%Login page
+% Login page
 var boarder : int := Pic.FileNew ("Image/Login/Common.frame.gif")
 var background : int := Pic.FileNew ("Image/Login/WorldSelect.birthday.0.0.jpeg")
 var title : int := Pic.FileNew ("Image/Login/Title.MSTitle.gif")
@@ -138,7 +136,7 @@ var loginNormalMouseOver : int := Pic.FileNew ("Image/Login/Title.BtLogin.mouseo
 var loginNormalPressed : int := Pic.FileNew ("Image/Login/Title.BtLogin.pressed.0.gif")
 var loginNormalDisabled : int := Pic.FileNew ("Image/Login/Title.BtLogin.disabled.0.gif")
 
-%Content Select
+% Content Select
 var signboard : int := Pic.FileNew ("Image/Content Select/WorldSelect.signboard.0.0.gif")
 var signboard1 : int := Pic.FileNew ("Image/Content Select/WorldSelect.signboard.2.0.gif")
 var csBg : int := Pic.FileNew ("Image/Content Select/WorldSelect.moonbunny.0.0.gif")
@@ -160,7 +158,7 @@ var creditMouseOver : int := Pic.FileNew ("Image/Content Select/button1over.gif"
 var quizNormal : int := Pic.FileNew ("Image/Content Select/button2up.gif")
 var quizMouseOver : int := Pic.FileNew ("Image/Content Select/button2over.gif")
 
-%Loading
+% Loading
 var loadingBar1 : int := Pic.FileNew ("Image/Loading/Notice.Loading.backgrnd.gif")
 var loadingBar2 : int := Pic.FileNew ("Image/Loading/Notice.Loading.bar.0.gif")
 var loadingBar3 : int := Pic.FileNew ("Image/Loading/Notice.Loading.bar.1.gif")
@@ -174,10 +172,10 @@ var loadingBar10 : int := Pic.FileNew ("Image/Loading/Notice.Loading.bar.8.gif")
 var loadingBar11 : int := Pic.FileNew ("Image/Loading/Notice.Loading.bar.9.gif")
 var loadingBar12 : int := Pic.FileNew ("Image/Loading/Notice.Loading.bar.10.gif")
 
-%Maps
+% Maps
 var gameBG1 : int := Pic.FileNew ("Image/Game/Map/Henesys1.bmp")
 
-%UI bar
+% UI bar
 var userUIbarBG : int := Pic.FileNew ("Image/Game/UI/background.gif")
 var userUIbar : int := Pic.FileNew ("Image/Game/UI/background2.gif")
 var healthBar : int := Pic.FileNew ("Image/Game/UI/bar.gif")
@@ -186,9 +184,9 @@ var graduation : int := Pic.FileNew ("Image/Game/UI/graduation.gif")
 
 
 %======================================================================================================
-%Procedures
+% Procedures
 %======================================================================================================
-%Login
+% Login
 procedure loginNormalClick
     fork sounds
     soundFile := "UI/ScrollUp"
@@ -220,7 +218,7 @@ end loginNormalMouseEffect2
 
 
 
-%Content Select
+% Content Select
 procedure scrollDown
     View.Set ("nooffscreenonly")
     Pic.Draw (signboard1, 125, 355, picMerge)
@@ -251,7 +249,7 @@ end scrollUp
 
 
 
-%Loading (for fun)
+% Loading (for fun)
 procedure loading
     View.Set ("nooffscreenonly")
     Pic.Draw (loadingBar1, maxx div 3 - 25, 150, picMerge)
@@ -288,7 +286,7 @@ end loading
 
 
 %======================================================================================================
-%Start Up
+% Start Up
 %======================================================================================================
 procedure startUp
 
@@ -352,7 +350,7 @@ end startUp
 
 
 %======================================================================================================
-%Login Page
+% Login Page
 %======================================================================================================
 
 procedure loginNormalScreen
@@ -444,9 +442,9 @@ end loginNormalScreen
 
 
 %======================================================================================================
-%Table of Content
+% Table of Content
 %======================================================================================================
-%Procedures
+% Procedures
 procedure lesson1
     Font.Draw ("Lesson 1:", 210, 338, font (7), black)
     Font.Draw ("Locate", 210, 310, font (14), black)
@@ -1192,7 +1190,7 @@ end contentSelect
 
 
 %======================================================================================================
-%Ingame (Abandoned) (Maybe later?)
+% Ingame (Abandoned) (Maybe later?)
 %======================================================================================================
 
 /*
@@ -1231,7 +1229,7 @@ end contentSelect
 
 
 %======================================================================================================
-%Page Mangement
+% Page Mangement
 %======================================================================================================
 
 startUp
